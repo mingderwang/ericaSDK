@@ -1,2 +1,8 @@
-export const one = 1
-export const two = 2
+import { Elysia, t as X } from 'elysia'
+export class Erica extends Elysia {
+  construct() {
+    super()
+  }
+}
+
+export t = X;

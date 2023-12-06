@@ -1,11 +1,11 @@
 #! /usr/bin/env bun
-import { Elysia, t } from 'elysia'
+import { Erica, t } from '@muzamint/erica'
 
 const PORT: number = +(Bun.env.PORT || 3000);
 const NODE_ENV = Bun.env.NODE_ENV ?? "development";
 
-const main = new Elysia()
-    .get('/', () => 'Hello from Elysia')
+const main = new Erica()
+    .get('/', () => 'Hello from Erica')
     .post('/signIn', ({ body }) => signIn(body), {
         body: t.Object({
             username: t.String(),
