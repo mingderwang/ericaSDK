@@ -5,6 +5,7 @@
   "types": "dist/index.d.ts",
   "description": "",
   "scripts": {
+    "start": "bun run index.ts",
     "build": "bun run build.mjs",
     "prepublishOnly": "bun run build"
   },
@@ -27,7 +28,11 @@
   "publishConfig": {
     "access": "public"
   },
- "bin": {
+  "bin": {
     "erica": "./index.ts"
- }
+  },
+  "dependencies": {
+    "@elysiajs/eden": "^0.7.6",
+    "elysia": "^0.7.30"
+  }
 }
