@@ -1,17 +1,21 @@
 #! /usr/bin/env bun
-import { Erica, t } from '@muzamint/erica'
+import { Erica, todos} from '.'
+import { json, error } from 'itty-router';
 
-const PORT: number = +(Bun.env.PORT || 3000);
-const NODE_ENV = Bun.env.NODE_ENV ?? "development";
+const erica: Erica = new Erica()
+const router = erica.getRouter()
 
-const main = new Erica()
-    .get('/', () => 'Hello from Erica')
-    .post('/signIn', ({ body }) => signIn(body), {
-        body: t.Object({
-            username: t.String(),
-            password: t.String()
-        })
-    })
-    .listen(PORT)
+router.get('/x', () => todos)
+    .get('/todos/:id',
+      (request: IRequest) => `${request.params.id}`
+    )
 
-console.log(`[${NODE_ENV}] Listening on port ${PORT}`);
+Bun.serve({
+  port: 3000,
+  fetch(request) {
+    return router
+      .handle(request)
+      .then(json) // send as JSON
+      .catch(error) // catch errors
+  },
+})

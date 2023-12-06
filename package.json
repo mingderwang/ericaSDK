@@ -1,6 +1,6 @@
 {
   "name": "@muzamint/erica",
-  "version": "0.0.4",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "",
@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@elysiajs/eden": "^0.7.6",
-    "elysia": "^0.7.30"
+    "elysia": "^0.7.30",
+    "itty-router": "^4.0.23"
   }
 }
